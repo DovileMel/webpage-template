@@ -1,24 +1,20 @@
 import React from 'react';
 import '../styles/style.scss';
-import * as actions from '../actions/actions';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
 class AdditionalMenu extends React.PureComponent {
 
-
-
   handleMenuEvent = () => {
     this.props.handleMenu(this.props.menuName)
   }
 
-
   render() {
     return (
       <div className="menu-link-2">
-        <a href="#" className="link-url" onClick={this.handleMenuEvent}>menu link</a>
+        <a href="#"
+           className={`link-url ${this.props.menuStatus ? 'active-option' : 'inactive-option'}`}
+           onMouseOver={this.handleMenuEvent}>menu link</a>
         {this.props.menuStatus && <div className="additional-menu" onMouseLeave={this.handleMenuEvent}>
           {this.props.options.map((option, index) =>
             <div key={index}>
@@ -34,19 +30,9 @@ class AdditionalMenu extends React.PureComponent {
 AdditionalMenu.propTypes = {
   handleMenu: PropTypes.func,
   menuStatus: PropTypes.bool,
-  menuName: PropTypes.string
+  menuName: PropTypes.string,
+  options: PropTypes.array
 };
 
-const stateToProps = ({ mainRd }) => ({
-  ...mainRd
-});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators({ ...actions }, dispatch)
-  };
-}
-export default connect(
-  stateToProps,
-  mapDispatchToProps
-)(AdditionalMenu);
+export default AdditionalMenu;

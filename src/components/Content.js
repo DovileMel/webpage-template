@@ -1,15 +1,9 @@
 import React from 'react';
 import '../styles/style.scss';
-import * as actions from '../actions/actions';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import FormContainer from './FormContainer';
 
 
 class Content extends React.PureComponent {
-
-  state = {}
-
 
   render() {
 
@@ -77,25 +71,33 @@ class Content extends React.PureComponent {
 
           </div>
         </div>
-
-        <div className="articles">
-          articles
+        <div className="block-content">
+          <div className="block">
+            Curabitur faucibus nulla nisl, vel pretium metus mollis sit amet.
+            Integer sodales consectetur ornare.
+            Proin et scelerisque dui, sed interdum purus.
+            Sed egestas laoreet purus vitae venenatis. Vivamus ut libero at elit posuere ullamcorper.
+            Phasellus quis consectetur turpis.
+          </div>
+          <div className="block">
+            Curabitur faucibus nulla nisl, vel pretium metus mollis sit amet.
+            Integer sodales consectetur ornare.
+            Proin et scelerisque dui, sed interdum purus.
+            Sed egestas laoreet purus vitae venenatis. Vivamus ut libero at elit posuere ullamcorper.
+            Phasellus quis consectetur turpis.
+          </div>
+          <div className="block">
+            Curabitur faucibus nulla nisl, vel pretium metus mollis sit amet.
+            Integer sodales consectetur ornare.
+            Proin et scelerisque dui, sed interdum purus.
+            Sed egestas laoreet purus vitae venenatis. Vivamus ut libero at elit posuere ullamcorper.
+            Phasellus quis consectetur turpis.
+          </div>
         </div>
       </div>
     )
   }
 }
 
-const stateToProps = ({ mainRd }) => ({
-  ...mainRd
-});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    actions: bindActionCreators({ ...actions }, dispatch)
-  };
-}
-export default connect(
-  stateToProps,
-  mapDispatchToProps
-)(Content);
+export default Content;
