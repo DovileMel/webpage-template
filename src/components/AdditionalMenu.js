@@ -22,7 +22,7 @@ class AdditionalMenu extends React.PureComponent {
         {this.props.menuStatus && <div className="additional-menu" onMouseLeave={this.handleMenuEvent}>
           {this.props.options.map((option, index) =>
             <div key={index}>
-              {option}
+              <div className="additional-menu-option"><a href="#">{option}</a></div>
             </div>
           )}
         </div>}
